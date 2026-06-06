@@ -1,0 +1,647 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>hello welcome to my webpage</title> 
+
+<style>
+body { 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+    line-height: 1.6; 
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 0 20px; 
+    background-color: #121010; 
+    color: #e0e0e0; 
+} 
+
+/* Full-screen Home Page Section */ 
+.homepage-hero { 
+    height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center;
+    
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    
+    /* FIX 2: Removed background-attachment: fixed so it scrolls naturally */
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0a7f671b-9c0a-4520-9157-6f9da91f4ba5/d382muo-b08969b6-c011-4c29-88c1-7dd634321ee1.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8wYTdmNjcxYi05YzBhLTQ1MjAtOTE1Ny02ZjlkYTkxZjRiYTUvZDM4Mm11by1iMDg5NjliNi1jMDExLTRjMjktODhjMS03ZGQ2MzQzMjFlZTEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.yht0nOOGfXkVjRSsm4hhSpbswLEDBvyqTL8rFXd40Oo");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+} 
+
+/* Title with your smooth electric gradient */ 
+h1 { 
+    font-size: 3.5rem; 
+    margin-bottom: 10px; 
+    letter-spacing: -1px;
+} 
+h1 em { 
+    font-style: normal; 
+    background: linear-gradient(45deg, #000000, #000000); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    filter: drop-shadow(0 2px 10px rgba(0, 242, 254, 0.3));
+} 
+
+/* Subtitle */ 
+h2 { 
+    font-size: 1.5rem; 
+    color: #000000; 
+    margin-bottom: 30px; 
+    font-weight: 400;
+} 
+
+.scroll-down-hint { 
+    color: #252424; 
+    font-size: 0.85rem; 
+    text-transform: uppercase; 
+    letter-spacing: 3px; 
+    animation: bounce 2s infinite; 
+} 
+
+@keyframes bounce { 
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); } 
+    40% { transform: translateY(-10px); } 
+    60% { transform: translateY(-5px); } 
+} 
+
+/* Learning Tab Container Section */ 
+.curriculum-container { 
+    padding-top: 40px; 
+    padding-bottom: 100px; 
+} 
+
+.section-title { 
+    color: #4facfe; 
+    font-size: 2rem; 
+    margin-bottom: 35px; 
+    text-align: center; 
+} 
+
+/* Native HTML Open/Close Tab */ 
+details { 
+    background-color: #1a1818; 
+    border-radius: 12px; 
+    margin-bottom: 20px; 
+    border-left: 4px solid #4facfe; 
+    overflow: hidden; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+} 
+details[open] {
+    box-shadow: 0 4px 25px rgba(79, 172, 254, 0.15);
+    border-left-color: #00f2fe;
+}
+
+/* The Clickable Tab Header */ 
+summary { 
+    padding: 22px 25px; 
+    cursor: pointer; 
+    font-weight: bold; 
+    font-size: 1.25rem; 
+    color: #4facfe; 
+    user-select: none; 
+    outline: none; 
+    transition: all 0.2s ease;
+} 
+summary:hover { 
+    background-color: #221f1f; 
+    color: #00f2fe;
+    padding-left: 30px; /* Subtle slide-right effect on hover */
+} 
+
+/* Inside Content Box */ 
+.tab-inner-text { 
+    padding: 30px; 
+    background-color: #151313; 
+    border-top: 1px solid #252222; 
+} 
+
+.tab-inner-text h4 { 
+    margin-top: 25px; 
+    color: #00f2fe; 
+    font-size: 1.3rem; 
+    margin-bottom: 12px; 
+} 
+.tab-inner-text h4:first-child { margin-top: 0; }
+
+.tab-inner-text p { 
+    color: #b5b5b5; 
+    margin-bottom: 18px; 
+    font-size: 1.05rem; 
+} 
+
+.tab-inner-text ul, .tab-inner-text ol { 
+    padding-left: 22px; 
+    color: #b5b5b5; 
+    margin-bottom: 18px; 
+} 
+
+.tab-inner-text li { 
+    margin-bottom: 10px; 
+} 
+
+/* Modern Glassmorphism Code Snippets */
+code { 
+    background-color: rgba(0, 255, 204, 0.08); 
+    padding: 3px 8px; 
+    border-radius: 6px; 
+    font-family: "Fira Code", Consolas, Monaco, monospace; 
+    color: #00ffcc; 
+    font-size: 0.95rem;
+    border: 1px solid rgba(0, 255, 204, 0.15);
+}
+
+/* Premium Block Code Layouts */
+pre {
+    background-color: #0d0c0c;
+    padding: 18px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #221f1f;
+    margin: 15px 0;
+}
+pre code {
+    background: none;
+    padding: 0;
+    border: none;
+    color: #e0e0e0;
+}
+
+/* Custom Interactive Quiz Interface Styling */
+#quizForm div {
+    background-color: #1e1b1b;
+    padding: 15px 20px;
+    border-radius: 8px;
+    border: 1px solid #2a2525;
+    transition: border-color 0.2s ease;
+}
+#quizForm div:hover {
+    border-color: #4facfe;
+}
+#quizForm p {
+    color: #fff !important;
+    margin-bottom: 12px;
+}
+#quizForm label {
+    display: inline-block;
+    margin: 6px 0;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 1rem;
+    transition: color 0.2s ease;
+}
+#quizForm label:hover {
+    color: #00f2fe;
+}
+#quizForm input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #00f2fe; /* Forces radio nodes to matching electric theme colors */
+}
+
+/* Slick Custom Separator Line */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #333, transparent);
+    margin: 40px 0;
+}
+</style>
+
+</head> 
+<body> 
+
+
+    <!-- 1. HOMEPAGE HERO SECTION --> 
+  <header class="homepage-hero">
+        <h1><em>Welcome to Learn HTML from scratch</em></h1> 
+        <h2>start learning html script</h2> 
+        <div class="scroll-down-hint">↓ Scroll Down to Learn ↓</div>
+  </header>
+
+
+    <!-- 2. SCROLL DOWN LEARNING SYSTEM -->
+    <main class="curriculum-container">
+        <h3 class="section-title">Select a Module to Learn HTML</h3>
+
+        <!-- MODULE 1 TAB -->
+<details>
+    <summary>Module 1: What is HTML?</summary>
+    <div class="tab-inner-text">
+        <h4>The Foundation of the Web</h4>
+        <p><strong>HTML</strong> stands for HyperText Markup Language. It is not a programming language; it is a <strong>markup language</strong> used to structure a webpage.</p>
+        <p>Think of it as the skeleton of a website. It tells the browser exactly where to place text, display images, and place buttons before you add any design styles or colors.</p>
+        
+        <h4>The Golden Anatomy of an HTML Element</h4>
+        <p>HTML relies on components called <strong>elements</strong>. Most elements consist of an opening tag, the actual content, and a closing tag.</p>
+        <ul>
+            <li><strong>Opening Tag:</strong> <code>&lt;p&gt;</code> tells the browser where a paragraph begins.</li>
+            <li><strong>Content:</strong> The text or media you want to display.</li>
+            <li><strong>Closing Tag:</strong> <code>&lt;/p&gt;</code> uses a forward slash to tell the browser the element ends here.</li>
+        </ul>
+
+        <h4>Essential Core Tags</h4>
+        <ul>
+            <li><strong>Headings:</strong> Elements from <code>&lt;h1&gt;</code> down to <code>&lt;h6&gt;</code> create text titles. <code>&lt;h1&gt;</code> is the largest and most important.</li>
+            <li><strong>Paragraphs:</strong> Defined by the <code>&lt;p&gt;</code> tag to hold standard blocks of text.</li>
+            <li><strong>Links:</strong> Created using the anchor <code>&lt;a&gt;</code> tag. They require an attribute called <code>href</code> to specify the URL destination: <code>&lt;a href="https://example.com"&gt;Visit Website&lt;/a&gt;</code></li>
+            <li><strong>Images:</strong> Embedded using the <code>&lt;img&gt;</code> tag. This is an "empty" or "void" tag, meaning it has no closing tag. It requires a source <code>src</code> attribute to pull the image file: <code>&lt;img src="photo.jpg" alt="A descriptive placeholder text"&gt;</code></li>
+        </ul>
+
+        <h4>Understanding Attributes</h4>
+        <p>Attributes provide extra information about an HTML element. They are always placed inside the <strong>opening tag</strong> and usually come in name/value pairs like <code>name="value"</code>.</p>
+        <ul>
+            <li><strong>href:</strong> Used in links to define the destination web address.</li>
+            <li><strong>src:</strong> Used in images to point to the file path of the picture.</li>
+            <li><strong>alt:</strong> Used in images to describe the image for visually impaired users or if the image fails to load.</li>
+            <li><strong>target="_blank":</strong> Added to links to force them to open in a brand new browser tab.</li>
+        </ul>
+
+        <h4>Semantic HTML (Writing Meaningful Code)</h4>
+        <p>Modern HTML5 uses structural tags that tell both the browser and search engines exactly what kind of content lives inside them. Instead of using generic boxes everywhere, you should use:</p>
+        <ul>
+            <li><code>&lt;header&gt;</code>: For the top section of your page, typically containing logos and navigation links.</li>
+            <li><code>&lt;nav&gt;</code>: Reserved specifically for your primary website navigation menus.</li>
+            <li><code>&lt;main&gt;</code>: Holds the unique, primary content of that specific webpage.</li>
+            <li><code>&lt;footer&gt;</code>: For the very bottom section, usually containing copyright info and privacy policies.</li>
+        </ul>
+
+        <h4>The Parent-Child Relationship (Nesting)</h4>
+        <p>HTML elements are nested inside one another. The outer element is the <strong>parent</strong>, and the inner element is the <strong>child</strong>. You must always close tags in the reverse order that you opened them.</p>
+        <pre><code>&lt;!-- Correct Nesting --&gt;
+&lt;p&gt;This text contains some &lt;strong&gt;bold text&lt;/strong&gt; inside it.&lt;/p&gt;
+
+&lt;!-- Incorrect Nesting (Do not do this!) --&gt;
+&lt;p&gt;This text contains some &lt;strong&gt;bold text.&lt;/p&gt;&lt;/strong&gt;</code></pre>
+
+        <h4>Code Comments</h4>
+        <p>You can leave hidden notes to yourself or other developers inside your code using comment tags. Browsers completely ignore these, so they will never show up on your live webpage.</p>
+        <pre><code>&lt;!-- This is a comment. It is invisible to website visitors! --&gt;</code></pre>
+
+        <h4>Anatomy of a Full Webpage Document</h4>
+        <p>Every standard HTML file must follow a specific, nested skeletal blueprint:</p>
+        <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;My First Website&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Welcome to My Website&lt;/h1&gt;
+    &lt;p&gt;This is where the user-facing content lives.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+        <ul>
+            <li><strong><code>&lt;!DOCTYPE html&gt;</code>:</strong> Informs the browser that this is a modern HTML5 document.</li>
+            <li><strong><code>&lt;html&gt;</code>:</strong> The root wrapper that contains every single piece of code on the page.</li>
+            <li><strong><code>&lt;head&gt;</code>:</strong> Holds the hidden background settings, character encoding, and browser tab titles.</li>
+            <li><strong><code>&lt;body&gt;</code>:</strong> Contains everything visible to the actual website visitor.</li>
+        </ul>
+
+        <h4>Practice on Your Own Computer</h4>
+        <ol>
+            <li>Open a basic text program like Notepad on Windows or TextEdit on Mac.</li>
+            <li>Copy the full webpage blueprint and paste it into your text document.</li>
+            <li>Save the file with the exact name <code>index.html</code> (ensure the file extension is strictly <code>.html</code>, not <code>.txt</code>).</li>
+            <li>Double-click your new file to open it directly inside any web browser to see your work live.</li>
+        </ol>
+    </div>
+</details>
+
+
+        <!-- MODULE 2 TAB -->
+<details>
+    <summary>Module 2: How Can You Learn HTML?</summary>
+    <div class="tab-inner-text">
+        <h4>The Best Way to Learn</h4>
+        <p>Learning HTML is straightforward because you can see your results instantly. Here is the step-by-step method to master it:</p>
+        <ul>
+            <li><strong>Understand the Tags:</strong> Learn how elements are built using opening and closing brackets.</li>
+            <li><strong>Practice Writing:</strong> Open a plain text editor on your computer (like Notepad or TextEdit) and type the code yourself instead of copy-pasting.</li>
+            <li><strong>Test in a Browser:</strong> Save your files as <code>.html</code> and drag them directly into Google Chrome to see your code turn into a live website.</li>
+        </ul>
+
+        <h4>1. Master Browser Developer Tools (The Inspector)</h4>
+        <p>Every website on the internet leaves its HTML skeleton completely exposed. You can study professional code directly inside your web browser.</p>
+        <ul>
+            <li><strong>View Page Source:</strong> Right-click any webpage and select <strong>"View Page Source"</strong> to read the raw, static HTML file sent by the server.</li>
+            <li><strong>Inspect Element:</strong> Right-click a specific image, button, or text block and select <strong>"Inspect"</strong>. This opens the **DOM (Document Object Model) Tree**, showing you the live, real-time hierarchy of tags.</li>
+            <li><strong>Live Editing:</strong> Double-click any tag or text inside the inspector panel. You can change text or delete tags inside your browser tab instantly to see how the website layout reacts without breaking the actual site.</li>
+        </ul>
+
+        <h4>2. Upgrade from Basic Text Editors to a Code Editor</h4>
+        <p>While Notepad and TextEdit work, professional developers use dedicated **IDEs (Integrated Development Environments)** like Visual Studio Code (VS Code) to accelerate their learning. These tools provide:</p>
+        <ul>
+            <li><strong>Syntax Highlighting:</strong> Colors tags, attributes, and text differently so typos and missing brackets stand out instantly.</li>
+            <li><strong>Auto-Completion (IntelliSense):</strong> Automatically types the closing tag for you the moment you type the opening tag's closing bracket.</li>
+            <li><strong>Emmet Shortcuts:</strong> Allows you to type shorthand symbols (like typing <code>p</code> and hitting Tab) to instantly generate a full element template.</li>
+        </ul>
+
+        <h4>3. Learn How to Debug Common Syntax Mistakes</h4>
+        <p>Browsers are highly forgiving. If you make a mistake, they will not crash; instead, they guess what you meant, which often scrambles your layout. Look out for these three bugs:</p>
+        <ul>
+            <li><strong>The Bleeding Effect:</strong> Forgetting a closing tag slash (leaving out <code>&lt;/strong&gt;</code>) forces that formatting to bleed into the rest of your document, styling every element below it.</li>
+            <li><strong>Broken Assets:</strong> If an image displays as a broken icon, your file path is incorrect. A single typo in a folder name or file extension prevents the browser from finding the source file.</li>
+            <li><strong>Invisible Content:</strong> If you accidentally type standard text using the <code>&lt;</code> and <code>&gt;</code> symbols, the browser misinterprets it as a code tag and completely hides it from the visitor.</li>
+        </ul>
+
+        <h4>4. Validate Code with the W3C Standards Tool</h4>
+        <p>It is difficult for a beginner's eyes to spot tiny syntax errors. The **W3C Markup Validation Service** is a free, official industry tool used to grade code accuracy.</p>
+        <p>You can copy your code and paste it directly into this validator. It scans your document line by line, flags unclosed tags, catches deprecated elements, and gives you specific line numbers to fix.</p>
+
+        <h4>Module 2 Practice Challenge</h4>
+        <ol>
+            <li>Go to your favorite online news article or blog post.</li>
+            <li>Right-click the main headline and click **Inspect** to discover what heading tag level (like <code>&lt;h1&gt;</code> or <code>&lt;h2&gt;</code>) they used.</li>
+            <li>Deliberately break your own file by deleting a closing tag, refresh your browser to witness the broken layout layout, and then fix it.</li>
+        </ol>
+    </div>
+</details>
+
+
+<!-- MODULE 3 TAB -->
+<details>
+    <summary>Module 3: The Basics of HTML Code</summary>
+    <div class="tab-inner-text">
+        <h4>Beyond Plain Text: Inline Text Formatting</h4>
+        <p>Once you have basic text blocks, you need to change how specific words look and read. HTML has built-in tags to modify text meaning and physical appearance:</p>
+        <ul>
+            <li><strong>Importance:</strong> Wrap text in <code>&lt;strong&gt;</code> to make it bold and signal to search engines that the text is crucial.</li>
+            <li><strong>Emphasis:</strong> Wrap text in <code>&lt;em&gt;</code> to italicize words, adding emphasis to a sentence.</li>
+            <li><strong>Highlighters:</strong> Wrap text in <code>&lt;mark&gt;</code> to apply a bright yellow background highlight behind specific words.</li>
+            <li><strong>Subscript & Superscript:</strong> Use <code>&lt;sub&gt;</code> for lower text (like the 2 in H<sub>2</sub>O) and <code>&lt;sup&gt;</code> for higher text (like footnotes<sup>1</sup>).</li>
+            <li><strong>Strikethrough:</strong> Wrap text in <code>&lt;del&gt;</code> to display a line drawn directly through deleted or outdated information.</li>
+            <li><strong>Underline / Inserted:</strong> Wrap text in <code>&lt;ins&gt;</code> to show newly added or underlined information.</li>
+        </ul>
+
+        <h4>Controlling Blank Space and Line Breaks</h4>
+        <p>If you press the Enter key multiple times or type extra spaces in your text editor, web browsers ignore it and smash your words together. To control page breaks, you must use code:</p>
+        <ul>
+            <li><strong>Line Breaks:</strong> Insert the <code>&lt;br&gt;</code> tag anywhere you want to force text to jump down to a brand-new line. This is an empty tag with no closing tag.</li>
+            <li><strong>Horizontal Rules:</strong> Insert the <code>&lt;hr&gt;</code> tag to draw a thin horizontal line across the screen to visually split up different topics.</li>
+            <li><strong>Preformatted Text:</strong> Wrap unique content inside the <code>&lt;pre&gt;</code> tag. This rare tag forces the browser to display all spaces, line breaks, and tabs exactly as you typed them in your text file, using a fixed-width typewriter font.</li>
+        </ul>
+
+        <h4>Handling Quotations and Citations Semantically</h4>
+        <p>When pulling quotes or definitions from external references, HTML provides explicit semantic options to formatting text blocks:</p>
+        <ul>
+            <li><strong>Block Quotations:</strong> Wrap large, multi-line quotes from external sources inside a <code>&lt;blockquote&gt;</code> tag. Browsers automatically indent these blocks from both sides to separate them from standard text.</li>
+            <li><strong>Short Inline Quotes:</strong> Wrap short, single-sentence quotes inside a <code>&lt;q&gt;</code> tag. The browser automatically places matching quotation marks around the text for you based on the language.</li>
+            <li><strong>Creative Work Citations:</strong> Wrap titles of books, songs, movies, or research articles inside a <code>&lt;cite&gt;</code> tag to properly mark the reference asset. This text typically renders in italics.</li>
+        </ul>
+
+        <h4>Displaying Code, Computer Input, and Abbreviations</h4>
+        <p>When writing technical content, you need specific tags to differentiate regular human sentences from technical information:</p>
+        <ul>
+            <li><strong>Inline Code Snippets:</strong> Wrap standalone code terms inside a single <code>&lt;code&gt;</code> tag to give them a distinct, fixed-width monospace font appearance.</li>
+            <li><strong>Keyboard Inputs:</strong> Wrap physical keys or keyboard shortcuts inside a <code>&lt;kbd&gt;</code> tag to represent layout commands (like <code>&lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;S&lt;/kbd&gt;</code>).</li>
+            <li><strong>Abbreviations:</strong> Wrap acronyms inside an <code>&lt;abbr&gt;</code> tag and use its <code>title</code> attribute to hold the full definition (e.g., <code>&lt;abbr title="World Wide Web"&gt;WWW&lt;/abbr&gt;</code>). Visitors can hover their mouse over the text to see the full spelling appear in a small pop-up box.</li>
+        </ul>
+
+        <h4>HTML Character Entities (Displaying Protected Symbols)</h4>
+        <p>Because HTML uses the <code>&lt;</code> and <code>&gt;</code> brackets to read code, you cannot simply type them into normal sentences. The browser will get confused and think you are writing code.</p>
+        <p>To display special characters safely, you must use code abbreviations called <strong>character entities</strong>:</p>
+        <ul>
+            <li><strong>Less Than symbol (&lt;):</strong> Type <code>&amp;lt;</code> in your code.</li>
+            <li><strong>Greater Than symbol (&gt;):</strong> Type <code>&amp;gt;</code> in your code.</li>
+            <li><strong>Ampersand symbol (&amp;):</strong> Type <code>&amp;amp;</code> in your code.</li>
+            <li><strong>Copyright symbol (&copy;):</strong> Type <code>&amp;copy;</code> in your code.</li>
+            <li><strong>Trademark symbol (&trade;):</strong> Type <code>&amp;trade;</code> in your code.</li>
+            <li><strong>Registered Trademark (&reg;):</strong> Type <code>&amp;reg;</code> in your code.</li>
+            <li><strong>Non-Breaking Space:</strong> Type <code>&amp;nbsp;</code> to force a blank space between two words that you never want split apart by a line break.</li>
+        </ul>
+
+        <h4>Block-Level vs. Inline Display Concepts</h4>
+        <p>HTML elements behave in one of two structural ways on a live screen, which changes how they stack next to each other:</p>
+        <ul>
+            <li><strong>Block-Level Elements:</strong> Elements like headings, paragraphs, and blockquotes always start on a fresh line and stretch out to consume the entire horizontal width of the webpage layout.</li>
+            <li><strong>Inline Elements:</strong> Elements like <code>&lt;strong&gt;</code>, <code>&lt;code&gt;</code>, or character entities only take up as much space as the text inside them. They sit tightly side-by-side within the same line without breaking the paragraph flow.</li>
+        </ul>
+
+        <h4>Module 3 Practice Challenge</h4>
+        <ol>
+            <li>Open your practice file and create a new paragraph.</li>
+            <li>Write a science sentence using formatting tags, such as: "The formula for water is <strong>H<sub>2</sub>O</strong>."</li>
+            <li>Below that sentence, use a horizontal rule tag to split the page section.</li>
+            <li>Write a line that uses character entities to safely type out an example tag without it disappearing from the screen.</li>
+            <li>Utilize a <code>&lt;pre&gt;</code> tag block to type out a small poem or indented block of text to see how the browser preserves your spacing.</li>
+            <li>Create an acronym sentence using the <code>&lt;abbr&gt;</code> tag to display a hidden tooltip translation when hovered.</li>
+        </ol>
+    </div>
+</details>
+
+<!-- MODULE 4 TAB -->
+<details>
+    <summary>Module 4: Essential Script Elements</summary>
+    <div class="tab-inner-text">
+        <h4>Connecting External Scripts and Styles</h4>
+        <p>A true webpage relies on more than just static content. To make your site interactive or styled, you must link it to external files using specific resource tags:</p>
+        <ul>
+            <li><strong><code>&lt;script&gt;</code> (The Brains):</strong> Used to embed or point to an external JavaScript file. This allows you to add logic, math calculators, animations, or interactive elements to your page.</li>
+            <li><strong><code>&lt;link&gt;</code> (The Wardrobe):</strong> Placed inside the hidden <code>&lt;head&gt;</code> section to connect an external CSS stylesheet. It tells the browser where to find your colors, fonts, and layouts. It is an empty tag with no closing pair.</li>
+        </ul>
+
+        <h4>Anatomy of Script and Link Integration</h4>
+        <p>To connect these background engines, you use specific attributes inside your tags to guide the browser straight to your code files:</p>
+        <pre><code>&lt;!-- Linking an external CSS stylesheet --&gt;
+&lt;link rel="stylesheet" href="style.css"&gt;
+
+&lt;!-- Linking an external JavaScript file --&gt;
+&lt;script src="script.js"&gt;&lt;/script&gt;</code></pre>
+        <ul>
+            <li><strong>rel="stylesheet":</strong> Tells the browser that the linked document is specifically a style document.</li>
+            <li><strong>src="script.js":</strong> Tells the tag exactly where your JavaScript logic file lives on your computer folder.</li>
+        </ul>
+
+        <h4>Script Execution Speed: Defer vs. Async Attributes</h4>
+        <p>When a browser loads a web page, it reads the HTML from top to bottom. If it runs into a massive <code>&lt;script&gt;</code> tag, it will completely pause rendering your layout until that script finishes downloading. To prevent this slow behavior, HTML provides two optimization attributes:</p>
+        <ul>
+            <li><strong><code>defer</code>:</strong> Tells the browser to continue downloading the script in the background but wait to execute it until the HTML layout is completely parsed and finished loading. This is the safest default choice.</li>
+            <li><strong><code>async</code>:</strong> Tells the browser to download the script in the background and run it the exact millisecond it finishes downloading, even if it interrupts the HTML loading process. This is perfect for independent third-party code like analytics counters.</li>
+        </ul>
+        <pre><code>&lt;!-- Safe background loading --&gt;
+&lt;script src="script.js" defer&gt;&lt;/script&gt;
+
+&lt;!-- Independent, immediate loading --&gt;
+&lt;script src="analytics.js" async&gt;&lt;/script&gt;</code></pre>
+
+        <h4>Inline Scripting vs. External Scripting</h4>
+        <p>Just like text formatting, you can write script commands in two distinct locations depending on how large your web project becomes:</p>
+        <ul>
+            <li><strong>Inline Scripts:</strong> You can type JavaScript code directly between an opening and closing <code>&lt;script&gt;</code> tag right on your current page for tiny, quick tasks.</li>
+            <li><strong>External Scripts:</strong> For clean coding, you leave the script tag empty and use the <code>src</code> attribute to point to a completely separate <code>.js</code> file. This keeps your layout code and logic code isolated.</li>
+        </ul>
+
+        <h4>Advanced Script Security: SRI and Crossorigin</h4>
+        <p>When you link to a script hosted on a third-party server (like an external library), you expose your website to security risks. If hackers compromise that external server, they can inject malicious code into your website. HTML5 protects against this using **Subresource Integrity (SRI)**:</p>
+        <ul>
+            <li><strong><code>integrity</code>:</strong> Contains a long, encrypted security hash string. The browser checks this hash against the script file it downloads. If a single character of the script has been altered, the browser blocks it instantly.</li>
+            <li><strong><code>crossorigin</code>:</strong> Establishes a secure connection request when fetching scripts from entirely separate domain names.</li>
+        </ul>
+        <pre><code>&lt;!-- Secure third-party script inclusion --&gt;
+&lt;script src="https://example.com" 
+        integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/ux" 
+        crossorigin="anonymous"&gt;&lt;/script&gt;</code></pre>
+
+        <h4>Data Blocks: Using type="application/json"</h4>
+        <p>Sometimes you need your HTML file to hold raw structured data that JavaScript can read later, but you do not want it to execute as active code. You can turn a script tag into a raw data locker by changing its type attribute:</p>
+        <pre><code>&lt;script type="application/json" id="config-data"&gt;
+{
+    "theme": "dark",
+    "fontSize": "16px"
+}
+&lt;/script&gt;</code></pre>
+        <p>The browser reads this configuration content purely as plaintext data data, ignoring it entirely until your JavaScript targets its <code>id</code> attribute to extract the layout settings.</p>
+
+        <h4>Advanced Resource Hints: Preload and Prefetch</h4>
+        <p>You can use the <code>&lt;link&gt;</code> tag to give the web browser early hints about what assets it will need to download next, dramatically speeding up website page loads:</p>
+        <ul>
+            <li><strong>preload:</strong> Forces the browser to download a high-priority asset (like a critical font or font file) instantly because it will be needed on the immediate screen layout.</li>
+            <li><strong>prefetch:</strong> Tells the browser to download an asset during idle time because the visitor is highly likely to click onto the next webpage that uses it.</li>
+        </ul>
+        <pre><code>&lt;!-- Preloading an urgent layout asset --&gt;
+&lt;link rel="preload" href="critical-style.css" as="style"&gt;</code></pre>
+
+        <h4>The Noscript Safety Net</h4>
+        <p>Some users browse the web with JavaScript disabled for privacy reasons, or their browser might fail to load your script file entirely. HTML protects your user experience with a backup tag:</p>
+        <ul>
+            <li><strong><code>&lt;noscript&gt;</code>:</strong> Contains plain text or warning messages that *only* appear if JavaScript is broken or turned off. If scripts are running perfectly, the browser hides this tag entirely.</li>
+        </ul>
+        <pre><code>&lt;noscript&gt;
+    &lt;p style="color: red;"&gt;Warning: This page requires JavaScript to function properly.&lt;/p&gt;
+&lt;/noscript&gt;</code></pre>
+
+        <h4>Module 4 Practice Challenge</h4>
+        <ol>
+            <li>Open your main HTML template file.</li>
+            <li>Inside your hidden <code>&lt;head&gt;</code> element, add a valid <code>&lt;link&gt;</code> tag pointing to a fictional file named <code>main.css</code>.</li>
+            <li>Right before your final, closing <code>&lt;/body&gt;</code> tag, insert a <code>&lt;script&gt;</code> tag using the <code>defer</code> attribute to link an external code asset cleanly.</li>
+            <li>Add a <code>&lt;noscript&gt;</code> block to display a fallback warning notice to visitors who might block your page's scripts.</li>
+            <li>Incorporate an optimized third-party script tag mock-up containing both <code>integrity</code> and <code>crossorigin</code> protective attributes.</li>
+        </ol>
+    </div>
+</details>
+
+        <!-- MODULE 5 TAB -->
+<!-- MODULE 5 TAB -->
+<!-- MODULE 5 TAB -->
+<details>
+    <summary>Module 5: Ready to Build?</summary>
+    <div class="tab-inner-text">
+        <h4>Your First Milestone</h4>
+        <p>Now that you know how HTML works, what the basics are, and how tags open and close, you are ready to create a basic file!</p>
+        <p>Try opening a code editor on your desktop, paste a title tag like <code>&lt;h1&gt;My First Page&lt;/h1&gt;</code>, save it, and view your creation directly in Google Chrome!</p>
+        
+        <hr>
+
+        <h4>HTML Grand Mastery Examination (20 Questions)</h4>
+        <p>Answer all 20 questions below, then click the green button at the very bottom to calculate your final score instantly!</p>
+
+        <form id="quizForm" onsubmit="calculateScore(event)">
+            <!-- Questions 1-5 -->
+            <div style="margin-bottom: 15px;"><p><strong>1. Which attribute optimizes script execution speed by loading it in the background?</strong></p>
+                <label><input type="radio" name="q1" value="wrong"> src</label><br><label><input type="radio" name="q1" value="correct"> defer</label><br><label><input type="radio" name="q1" value="wrong"> rel</label><br><label><input type="radio" name="q1" value="wrong"> integrity</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>2. What code represents the "Less Than" symbol (&lt;) safely?</strong></p>
+                <label><input type="radio" name="q2" value="wrong"> &amp;amp;</label><br><label><input type="radio" name="q2" value="wrong"> &amp;nbsp;</label><br><label><input type="radio" name="q2" value="correct"> &amp;lt;</label><br><label><input type="radio" name="q2" value="wrong"> &amp;gt;</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>3. Forgetting a closing tag causes text formatting to do what?</strong></p>
+                <label><input type="radio" name="q3" value="correct"> Bleed into lower elements</label><br><label><input type="radio" name="q3" value="wrong"> Crash the web browser</label><br><label><input type="radio" name="q3" value="wrong"> Erase all inline images</label><br><label><input type="radio" name="q3" value="wrong"> Convert block tags into scripts</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>4. Which tag preserves your exact typed empty spaces and line breaks?</strong></p>
+                <label><input type="radio" name="q4" value="wrong"> &lt;br&gt;</label><br><label><input type="radio" name="q4" value="wrong"> &lt;blockquote&gt;</label><br><label><input type="radio" name="q4" value="wrong"> &lt;abbr&gt;</label><br><label><input type="radio" name="q4" value="correct"> &lt;pre&gt;</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>5. What does HTML stand for?</strong></p>
+                <label><input type="radio" name="q5" value="correct"> HyperText Markup Language</label><br><label><input type="radio" name="q5" value="wrong"> HighText Machine Language</label><br><label><input type="radio" name="q5" value="wrong"> Hyperlink Management Level</label><br><label><input type="radio" name="q5" value="wrong"> Home Tool Markup Language</label></div>
+
+            <!-- Questions 6-10 -->
+            <div style="margin-bottom: 15px;"><p><strong>6. Where must extra attributes always be placed?</strong></p>
+                <label><input type="radio" name="q6" value="correct"> Inside the opening tag</label><br><label><input type="radio" name="q6" value="wrong"> Inside the closing tag</label><br><label><input type="radio" name="q6" value="wrong"> Within a comment block</label><br><label><input type="radio" name="q6" value="wrong"> Between text content structures</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>7. Which of these is a void (self-closing) element?</strong></p>
+                <label><input type="radio" name="q7" value="wrong"> &lt;p&gt;</label><br><label><input type="radio" name="q7" value="wrong"> &lt;main&gt;</label><br><label><input type="radio" name="q7" value="correct"> &lt;img&gt;</label><br><label><input type="radio" name="q7" value="wrong"> &lt;title&gt;</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>8. What attribute links an anchor tag (&lt;a&gt;) to a URL?</strong></p>
+                <label><input type="radio" name="q8" value="wrong"> src</label><br><label><input type="radio" name="q8" value="correct"> href</label><br><label><input type="radio" name="q8" value="wrong"> alt</label><br><label><input type="radio" name="q8" value="wrong"> target</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>9. Which attribute provides alternative text descriptions for images?</strong></p>
+                <label><input type="radio" name="q9" value="wrong"> title</label><br><label><input type="radio" name="q9" value="wrong"> href</label><br><label><input type="radio" name="q9" value="correct"> alt</label><br><label><input type="radio" name="q9" value="wrong"> src</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>10. Which semantic element wraps main website navigation menus?</strong></p>
+                <label><input type="radio" name="q10" value="wrong"> &lt;header&gt;</label><br><label><input type="radio" name="q10" value="correct"> &lt;nav&gt;</label><br><label><input type="radio" name="q10" value="wrong"> &lt;main&gt;</label><br><label><input type="radio" name="q10" value="wrong"> &lt;footer&gt;</label></div>
+
+            <!-- Questions 11-15 -->
+            <div style="margin-bottom: 15px;"><p><strong>11. How do you construct a hidden code comment block?</strong></p>
+                <label><input type="radio" name="q11" value="wrong"> // Comment</label><br><label><input type="radio" name="q11" value="correct"> &lt;!-- Comment --&gt;</label><br><label><input type="radio" name="q11" value="wrong"> /* Comment */</label><br><label><input type="radio" name="q11" value="wrong"> &lt;comment&gt;Comment&lt;/comment&gt;</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>12. What browser tool shows you the live layout tag hierarchy?</strong></p>
+                <label><input type="radio" name="q12" value="wrong"> View Page Source</label><br><label><input type="radio" name="q12" value="correct"> Inspect Element</label><br><label><input type="radio" name="q12" value="wrong"> History Manager</label><br><label><input type="radio" name="q12" value="wrong"> Resource Preloader</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>13. Which software platform provides automatic tag closure help?</strong></p>
+                <label><input type="radio" name="q13" value="correct"> An IDE like VS Code</label><br><label><input type="radio" name="q13" value="wrong"> Plain Notepad</label><br><label><input type="radio" name="q13" value="wrong"> Apple TextEdit</label><br><label><input type="radio" name="q13" value="wrong"> Browser Viewers</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>14. What service scans your markup document lines to validate code?</strong></p>
+                <label><input type="radio" name="q14" value="correct"> W3C Validation Service</label><br><label><input type="radio" name="q14" value="wrong"> Google Sourcer</label><br><label><input type="radio" name="q14" value="wrong"> Emmet Syntax Compiler</label><br><label><input type="radio" name="q14" value="wrong"> Integrity Hasher</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>15. Which text formatting tag applies verbal emphasis in italics?</strong></p>
+                <label><input type="radio" name="q15" value="wrong"> &lt;strong&gt;</label><br><label><input type="radio" name="q15" value="correct"> &lt;em&gt;</label><br><label><input type="radio" name="q15" value="wrong"> &lt;mark&gt;</label><br><label><input type="radio" name="q15" value="wrong"> &lt;ins&gt;</label></div>
+
+            <!-- Questions 16-20 -->
+            <div style="margin-bottom: 15px;"><p><strong>16. Which element creates lower subscript numbers like H<sub>2</sub>O?</strong></p>
+                <label><input type="radio" name="q16" value="correct"> &lt;sub&gt;</label><br><label><input type="radio" name="q16" value="wrong"> &lt;sup&gt;</label><br><label><input type="radio" name="q16" value="wrong"> &lt;del&gt;</label><br><label><input type="radio" name="q16" value="wrong"> &lt;kbd&gt;</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>17. Which tag creates text acronym hovers using a title attribute?</strong></p>
+                <label><input type="radio" name="q17" value="wrong"> &lt;cite&gt;</label><br><label><input type="radio" name="q17" value="wrong"> &lt;q&gt;</label><br><label><input type="radio" name="q17" value="correct"> &lt;abbr&gt;</label><br><label><input type="radio" name="q17" value="wrong"> &lt;blockquote&gt;</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>18. How do block-level layout elements behave naturally?</strong></p>
+                <label><input type="radio" name="q18" value="wrong"> They sit side-by-side inside text lines</label><br><label><input type="radio" name="q18" value="correct"> They start on a fresh line and take full width</label><br><label><input type="radio" name="q18" value="wrong"> They disappear until clicked by users</label><br><label><input type="radio" name="q18" value="wrong"> They turn code phrases into raw numbers</label></div>
+            <div style="margin-bottom: 15px;"><p><strong>19. What security attribute holds an encrypted verification hash?</strong></p>
+                <label><input type="radio" name="q19" value="wrong"> crossorigin</label><br><label><input type="radio" name="q19" value="wrong"> async</label><br><label><input type="radio" name="q19" value="correct"> integrity</label><br><label><input type="radio" name="q19" value="wrong"> preload</label></div>
+
+            <div style="margin-bottom: 12px;"><p><strong>20. Which wrapper renders content only if scripts are blocked?</strong></p><label><input type="radio" name="q20" value="correct"> &lt;noscript&gt;</label>&nbsp;&nbsp;&nbsp;<label><input type="radio" name="q20" value="wrong"> &lt;pre&gt;</label></div>
+
+            <!-- Submit Button Area -->
+            <button type="submit" style="padding: 12px 24px; font-weight: bold; background-color: #28a745; color: white; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; margin-top: 15px;">
+                Submit Examination & View Score
+            </button>
+        </form>
+
+        <!-- Score Display Output Area -->
+        <div id="quizResult" style="margin-top: 25px; padding: 20px; border-radius: 4px; display: none; font-weight: bold; background-color: #f8f9fa; border: 1px solid #dee2e6;">
+            Your Final Score: <span id="scoreText">0 / 20 (0%)</span>
+        </div>
+
+        <!-- Self-Contained Grading Engine -->
+        <script>
+            function calculateScore(event) {
+                event.preventDefault();
+                var totalQuestions = 20;
+                var correctCount = 0;
+                var form = document.getElementById('quizForm');
+                
+                for (var i = 1; i <= totalQuestions; i++) {
+                    var group = form.elements['q' + i];
+                    if (group && group.value === 'correct') {
+                        correctCount++;
+                    }
+                }
+                
+                var percentage = Math.round((correctCount / totalQuestions) * 100);
+                var resultBox = document.getElementById('quizResult');
+                var scoreSpan = document.getElementById('scoreText');
+                
+                scoreSpan.textContent = correctCount + " / " + totalQuestions + " (" + percentage + "%)";
+                resultBox.style.display = 'block';
+                
+                if (percentage >= 70) {
+                    resultBox.style.color = '#155724';
+                    resultBox.style.backgroundColor = '#d4edda';
+                    resultBox.style.borderColor = '#c3e6cb';
+                } else {
+                    resultBox.style.color = '#721c24';
+                    resultBox.style.backgroundColor = '#f8d7da';
+                    resultBox.style.borderColor = '#f5c6cb';
+                }
+                resultBox.scrollIntoView({ behavior: 'smooth' });
+            }
+        </script>
+    </div>
+</details>
+
+
+    </main>
+
+</body>
+</html>
